@@ -40,7 +40,7 @@ const Footer = () => {
                   <Link
                     key={item?.title}
                     href={item?.href}
-                    className="hover:text-shop_light_green hoverEffect font-semibold text-[15px]"
+                    className="hover:text-shop_light_green hoverEffect text-[15px]"
                   >
                     {item?.title}
                   </Link>
@@ -60,7 +60,7 @@ const Footer = () => {
                   <Link
                     key={item?.title}
                     href={`/category/${item?.href}`}
-                    className="hover:text-shop_light_green hoverEffect font-semibold text-[15px]"
+                    className="hover:text-shop_light_green hoverEffect text-[15px]"
                   >
                     {item?.title}
                   </Link>

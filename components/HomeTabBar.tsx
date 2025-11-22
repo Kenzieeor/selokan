@@ -1,4 +1,5 @@
 import { productType } from "@/constants/data";
+import { ChevronsRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -40,15 +41,29 @@ const HomeTabBar = ({ selectedTab, onTabSelect }: Props) => {
       </div>
 
       {/* See all → center on mobile */}
-
       <Link
         href={"/shop"}
         className="
-          border border-shop_light_green/30 px-4 py-1.5 md:px-6 md:py-2 text-center 
-          rounded-full hover:bg-shop_light_green hover:border-shop_light_green hover:text-white hoverEffect
-        "
+    group relative flex items-center justify-center w-full md:w-fit
+    border border-shop_light_green/30 px-4 py-1.5 md:px-6 md:py-2 
+    text-center rounded-full 
+    hover:bg-shop_light_green hover:border-shop_light_green hover:text-white
+    hoverEffect
+    transition-all duration-300
+  "
       >
-        See all
+        <span className="transition-all duration-300 group-hover:pr-4">
+          See all
+        </span>
+
+        <ChevronsRight
+          className="
+      hidden md:block
+      absolute right-2 opacity-0 group-hover:opacity-100
+      translate-x-1 group-hover:translate-x-0
+      transition-all duration-300
+    "
+        />
       </Link>
     </div>
   );
