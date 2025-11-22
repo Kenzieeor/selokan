@@ -5,7 +5,7 @@ import { useSwipe } from "@/hooks/useSwipe";
 import { Title } from "./ui/text";
 import Link from "next/link";
 import Image from "next/image";
-import { banner_1 } from "@/images";
+import { product_1, product_25, product_3 } from "@/images";
 
 const slides = [
   {
@@ -15,7 +15,7 @@ const slides = [
         Grab Up to 50% off on <br /> Selected headphones
       </>
     ),
-    image: banner_1,
+    image: product_1,
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const slides = [
         Summer Deals Are Here <br /> Get Exclusive Discounts
       </>
     ),
-    image: banner_1,
+    image: product_25,
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const slides = [
         New Arrivals Just Dropped <br /> Shop the Latest Gear
       </>
     ),
-    image: banner_1,
+    image: product_3,
   },
 ];
 
@@ -57,7 +57,7 @@ const HomeBanner = () => {
 
   return (
     <div
-      className="relative overflow-hidden rounded-lg bg-shop_light_pink py-16 md:py-0"
+      className="relative overflow-hidden rounded-lg bg-shop_light_pink py-5 md:py-0"
       {...swipe} // ⬅ inject semua event dari hook
     >
       {/* SLIDES */}
@@ -70,9 +70,9 @@ const HomeBanner = () => {
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className="flex w-full flex-shrink-0 items-center justify-between px-10 lg:px-24"
+            className="flex w-full flex-shrink-0 items-center justify-between px-4 lg:px-24"
           >
-            <div className="space-y-5">
+            <div>
               <Title className="mb-5">{slide.title}</Title>
 
               <Link
@@ -87,7 +87,7 @@ const HomeBanner = () => {
               <Image
                 src={slide.image}
                 alt="banner"
-                className="hidden w-96 md:inline-flex"
+                className="hidden w-70 md:inline-flex"
               />
             </div>
           </div>

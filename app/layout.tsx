@@ -1,4 +1,5 @@
 import { Roboto } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -9,7 +10,10 @@ const roboto = Roboto({
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} antialiased`}>{children}</body>
+      <body className={`${roboto.variable} antialiased`}>
+        <Toaster />
+        {children}
+      </body>
     </html>
   );
 };

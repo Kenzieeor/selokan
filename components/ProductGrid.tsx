@@ -46,7 +46,7 @@ const ProductGrid = () => {
       />
 
       {loading ? (
-        <div className="flex flex-col items-center justify-center py-10 min-h-80 gap-4 bg-gray-100 w-full mt-10">
+        <div className="flex flex-col items-center justify-center py-10 min-h-80 gap-4 rounded-md bg-gray-100 w-full mt-10">
           <div className="space-x-2 flex items-center text-black">
             <Loader2 className="w-5 h-5 animate-spin" />
             <span>Product is loading...</span>

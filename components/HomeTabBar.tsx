@@ -13,7 +13,7 @@ const HomeTabBar = ({ selectedTab, onTabSelect }: Props) => {
     <div
       className="
         flex flex-col gap-5 
-        md:flex-row md:items-center md:justify-between
+        md:flex-row md:items-center md:justify-between mt-10
       "
     >
       {/* Mobile → grid, Desktop → flex */}

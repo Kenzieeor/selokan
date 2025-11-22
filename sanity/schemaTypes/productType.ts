@@ -42,7 +42,7 @@ export const productType = defineType({
     }),
     defineField({
       name: "discount",
-      title: "Discount",
+      title: "Discount Percentage %",
       type: "number",
       validation: (Rule) => Rule.required().min(0),
     }),
@@ -96,6 +96,50 @@ export const productType = defineType({
       type: "boolean",
       description: "Toggle to Featured on or off",
       initialValue: false,
+    }),
+
+    defineField({
+      name: "reviews",
+      title: "Product Reviews",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "user",
+              title: "User",
+              type: "reference",
+              to: [{ type: "user" }],
+            },
+            {
+              name: "rating",
+              title: "Rating",
+              type: "number",
+              validation: (Rule) => Rule.required().min(1).max(5),
+            },
+            {
+              name: "comment",
+              title: "Comment",
+              type: "text",
+            },
+          ],
+          preview: {
+            select: {
+              title: "user",
+              rating: "rating",
+              subtitle: "comment",
+            },
+            prepare(selection) {
+              const { title, rating, subtitle } = selection;
+              return {
+                title: title?._ref || "Anonymous",
+                subtitle: `Rating: ${rating} / 5 — ${subtitle || ""}`,
+              };
+            },
+          },
+        },
+      ],
     }),
   ],
   preview: {

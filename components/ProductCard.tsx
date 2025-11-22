@@ -7,6 +7,7 @@ import React from "react";
 import AddToWishListButton from "./AddToWishListButton";
 import { SubTitle, Title } from "./ui/text";
 import PriceView from "./PriceView";
+import AddChartButton from "./AddChartButton";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -97,6 +98,8 @@ const ProductCard = ({ product }: { product: Product }) => {
           discount={product?.discount}
           className="text-sm"
         />
+
+        <AddChartButton product={product} className="w-36 rounded-full" />
       </div>
     </div>
   );
