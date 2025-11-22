@@ -12,9 +12,9 @@ const AddToWishListButton = ({
 }) => {
   return (
     <div className={cn("absolute top-1 right-1 z-10", className)}>
-      <div className="p-1.5 rounded-full hover:bg-shop_dark_green hover:text-white hoverEffect">
+      <button className="p-1.5 rounded-full hover:bg-shop_dark_green hover:text-white hoverEffect bg-shop_lighter_bg">
         <Heart size={15} />
-      </div>
+      </button>
     </div>
   );
 };

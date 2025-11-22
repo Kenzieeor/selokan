@@ -17,6 +17,10 @@ const ProductCard = ({ product }: { product: Product }) => {
             loading="lazy"
             width={500}
             height={500}
+            className={`w-full h-64 object-contain overflow-hidden transition-transform
+               bg-shop_light_bg hoverEffect ${
+                 product?.stock !== 0 ? "group-hover:scale-105" : "opacity-50"
+               }`}
           />
         )}
 
@@ -57,7 +61,11 @@ const ProductCard = ({ product }: { product: Product }) => {
           </Link>
         )}
       </div>
-      <div className="p-3">Product Details</div>
+      <div className="p-3">
+        {product?.categories && (
+          <p>{product?.categories.map((cat) => cat).join(", ")}</p>
+        )}
+      </div>
     </div>
   );
 };
