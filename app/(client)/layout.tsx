@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Shopcart Online Store",

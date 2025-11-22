@@ -1,5 +1,5 @@
-import { defineField, defineType } from "sanity";
 import { TagIcon } from "@sanity/icons";
+import { defineField, defineType } from "sanity";
 
 export const categoryType = defineType({
   name: "category",
@@ -43,12 +43,21 @@ export const categoryType = defineType({
         hotspot: true,
       },
     }),
+
+    defineField({
+      name: "productCount",
+      type: "number",
+      readOnly: true,
+      hidden: true,
+      description: "Automatically populated by GROQ query",
+    }),
   ],
   preview: {
     select: {
       title: "title",
       subtitle: "description",
       media: "image",
+      productCount: "productCount",
     },
   },
 });
