@@ -429,11 +429,47 @@ export type BRAND_QUERYResult = Array<{
     _type: "image";
   };
 }>;
+// Variable: LATEST_BLOG_QUERY
+// Query: *[_type == "blog" && isLatest == true] | order(name asc) {  ...,  blogcategories[]->{  title  }  }
+export type LATEST_BLOG_QUERYResult = Array<{
+  _id: string;
+  _type: "blog";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  author?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "author";
+  };
+  mainImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  blogcategories: Array<{
+    title: string | null;
+  }> | null;
+  publishedAt?: string;
+  isLatest?: boolean;
+  body?: BlockContent;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"brand\"] | order(name asc)": BRAND_QUERYResult;
+    "*[_type == \"blog\" && isLatest == true] | order(name asc) {\n  ...,\n  blogcategories[]->{\n  title\n  }\n  }": LATEST_BLOG_QUERYResult;
   }
 }
